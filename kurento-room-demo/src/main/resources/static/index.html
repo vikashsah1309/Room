@@ -56,9 +56,16 @@
 	<script src="./custom/FileBufferReader.js"></script>
 	<!--custom-->
 	<script src="./custom/custom.js"></script>
+<style>
+.md-dialog-container {
+  height: 100% !important;
+  position: fixed !important;
+  top: 0px !important;
+}
+</style>
 </head>
 
-<body ng-app="kurento_room">
+<body ng-app="kurento_room" style="width: 100%;">
 	<div ng-view style="display: block;position: relative;width: 100%;height: 100vh;">
 		<!--display the view (login/call) with route system-->
 	</div>
