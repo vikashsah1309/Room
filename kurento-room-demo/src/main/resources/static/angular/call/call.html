@@ -9,7 +9,7 @@
         <div id="logo">
             <img src="img/kaza-logo.png" />
         </div>
-        <div id="room-name">Room : {{roomName | split:'-':0}}</div>
+        <div id="room-name"><h3 style="text-overflow: ellipsis;white-space: nowrap;">Room : {{roomName | split:'-':0}}</h3></div>
         <div class="mb" align="right" style="margin: 1em; padding-bottom: 5px" id="buttonActions">
             <!--<button class="btn btn--xl btn--brown btn--fab mdi md-recent-actors" lx-ripple ng-click="disableMainSpeaker()" id="buttonMainSpeaker" title="Main Speaker toggle"></button> disable Main Speaker-->
             <button class="btn btn--xl btn--teal btn--fab mdi md-volume-up" lx-ripple ng-click="onOffVolume()" id="buttonVolume" title="Audio toggle"></button>
@@ -21,8 +21,7 @@
             <button class="btn btn--xl btn--orange btn--fab mdi md-desktop-mac " lx-ripple ng-click="shareScreen()" title="Desktop sharing"></button>
             <button class="btn btn--xl btn--red btn--fab mdi md-call-end " lx-ripple ng-click="leaveRoom()" id="buttonLeaveRoom" title="Leave room"></button>
             <!--colgar-->
-            <button class="btn btn--xl btn--purple btn--fab mdi md-fullscreen" style="font-size: 1.9rem" lx-ripple ng-click="goFullscreen()"
-                title="Fullscreen"></button>
+            <button class="btn btn--xl btn--purple btn--fab mdi md-fullscreen" style="font-size: 1.9rem" lx-ripple ng-click="goFullscreen()" id="buttonFullscreen" title="Fullscreen"></button>
             <!--Share File-->
             <button type="file" class="btn btn--xl btn--green btn--fab mdi md-attach-file" lx-ripple custom-on-change="onFileSelect"
                 title="Share File">

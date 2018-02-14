@@ -177,7 +177,7 @@ video {
 
 #room-name {
     display: inline;
-    width: 100%;
+    width: 80%;
     position: absolute;
     margin: auto;
     background-color: transparent;

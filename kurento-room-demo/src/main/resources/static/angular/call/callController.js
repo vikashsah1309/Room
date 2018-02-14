@@ -2,7 +2,7 @@ kurento_room.controller('callController', function ($scope, $http, $window, Serv
 
 
     var options;
-    var apiHost = 'https://kaza.ai';
+    var apiHost = 'https://52.230.26.17';
     //var apiHost = 'https://www.kazastream.com';
     $scope.roomName = '';
     $scope.showAlert = false;
@@ -269,6 +269,7 @@ kurento_room.controller('callController', function ($scope, $http, $window, Serv
 
                     sendSharedScreenMessage('Shared screen: ' + msg);
                     window.open(redirectUrl, '_blank');
+			$('#buttonActions').hide();
 
                 } else {
                     alert('Some error occured! try again later.')
@@ -288,10 +289,18 @@ kurento_room.controller('callController', function ($scope, $http, $window, Serv
 
     $scope.goFullscreen = function () {
 
-        if (Fullscreen.isEnabled())
+       var element = document.getElementById("buttonFullscreen");
+        if (Fullscreen.isEnabled()){
+		element.classList.remove("md-fullscreen-exit");
+            element.classList.add("md-fullscreen");
             Fullscreen.cancel();
-        else
+}
+        else{
             Fullscreen.all();
+		element.classList.remove("md-fullscreen");
+        element.classList.add("md-fullscreen-exit");
+}
+
 
     };
 
@@ -371,10 +380,12 @@ kurento_room.controller('callController', function ($scope, $http, $window, Serv
             direction: "right"
         };
         if ($("#effect").is(':visible')) {
+		$('#buttonActions').show();
             $("#content").animate({
                 width: '100%'
             }, 500);
         } else {
+		$('#buttonActions').hide();
             $("#content").animate({
                 width: '80%'
             }, 500);
@@ -390,10 +401,15 @@ kurento_room.controller('callController', function ($scope, $http, $window, Serv
             direction: "right"
         };
         if ($("#whiteboard").is(':visible')) {
+		$('#buttonActions').show();
+		$('#room-name').css('margin-top','0px');
             $("#content").animate({
                 width: '100%'
             }, 500);
         } else {
+		
+		$('#buttonActions').hide();
+		$('#room-name').css('margin-top','40px');
             $("#content").animate({
                 width: '30%'
             }, 500);
@@ -472,7 +488,7 @@ kurento_room.controller('callController', function ($scope, $http, $window, Serv
                 room = $routeParams.eventId,
                 sharedTo = result;
             var deferred = $q.defer();
-            var req = 'https://kaza.ai/api/common/ShareExisingHubToPublicUser?';
+            var req = 'https://52.230.26.17/api/common/ShareExisingHubToPublicUser?';
             req += 'sharedBy=' + sharedBy;
             req += '&sharedTo=' + sharedTo;
             req += '&room=' + room;
